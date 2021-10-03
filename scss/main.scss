@@ -17,7 +17,7 @@ body {
 .btn {
   border: none;
   font-family: inherit;
-  background: none;
+  // background: none;
   font-size: inherit;
   font-family: inherit;
 
@@ -81,7 +81,7 @@ body {
     grid-column: 4/5;
     grid-row: 5 / 7;
   }
-  button {
+  .btn {
     background-color: grey;
     justify-self: stretch;
     align-self: stretch;
@@ -90,6 +90,11 @@ body {
     border-radius: 3px;
     .fnt-large {
       font-size: 5rem;
+      transition: background-color 1s;
+    }
+    &:active {
+      background-color: rgb(83, 81, 81);
+      transform: translateY(1px);
     }
   }
 }

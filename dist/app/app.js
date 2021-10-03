@@ -47,7 +47,11 @@ const operate = {
   },
   sub() {
     operation = 'sub';
-    lastVal = parseFloat(curVal) - parseFloat(lastVal ?? '0');
+    if (lastVal === null) {
+      lastVal = curVal;
+    } else {
+      lastVal = parseFloat(lastVal) - parseFloat(curVal);
+    }
     showPrimaryDisplay(lastVal);
     this.reset();
   },
@@ -59,7 +63,11 @@ const operate = {
   },
   div() {
     operation = 'div';
-    lastVal = parseFloat(curVal) / parseFloat(lastVal ?? '1');
+    if (lastVal === null) {
+      lastVal = curVal;
+    } else {
+      lastVal = parseFloat(lastVal) / parseFloat(curVal);
+    }
     showPrimaryDisplay(lastVal);
     this.reset();
   },
@@ -79,6 +87,8 @@ function calculate(e) {
   if (target.classList.contains('backspace')) backspace();
   // Number buttons
   if (target.classList.contains('num')) {
+    if (target.classList.contains('period') && curDisp.indexOf('.') !== -1)
+      return;
     curDisp = curDisp === '0' ? '' : primaryDisplay.textContent;
     curDisp += target.textContent;
     showPrimaryDisplay(curDisp);

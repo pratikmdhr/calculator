@@ -15,7 +15,6 @@ body {
 .btn {
   border: none;
   font-family: inherit;
-  background: none;
   font-size: inherit;
   font-family: inherit; }
   .btn.fnt-large {
@@ -63,12 +62,16 @@ body {
   .calculator .equal {
     grid-column: 4/5;
     grid-row: 5 / 7; }
-  .calculator button {
+  .calculator .btn {
     background-color: grey;
     justify-self: stretch;
     align-self: stretch;
     text-align: center;
     border: 0.5px #444 dotted;
     border-radius: 3px; }
-    .calculator button .fnt-large {
-      font-size: 5rem; }
+    .calculator .btn .fnt-large {
+      font-size: 5rem;
+      transition: background-color 1s; }
+    .calculator .btn:active {
+      background-color: #535151;
+      transform: translateY(1px); }
